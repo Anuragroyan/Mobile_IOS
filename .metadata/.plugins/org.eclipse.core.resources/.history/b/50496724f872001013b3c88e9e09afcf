@@ -1,0 +1,20 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class ButtonPressed extends BaseTest {
+    
+	@Test
+	public void BtnPressed() throws MalformedURLException, URISyntaxException {
+		driver.findElement(AppiumBy.xpath("//XCUIElementTypeTable/XCUIElementTypeCell[3]/XCUIElementTypeOther[1]/XCUIElementTypeOther")).click();
+		String Btn1 = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"SYSTEM (TEXT)\"`][2]")).getText();
+		Assert.assertEquals(Btn1, "SYSTEM (TEXT)");
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name == \"Button\"`][1]")).click();
+	}
+}

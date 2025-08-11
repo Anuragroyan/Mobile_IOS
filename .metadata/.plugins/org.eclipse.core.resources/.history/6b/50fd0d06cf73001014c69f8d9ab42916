@@ -1,0 +1,26 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class TextFieldPress  extends BaseTest{
+    
+	@Test
+	public void TextFieldPressed() throws MalformedURLException, URISyntaxException, InterruptedException {
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name == \"Text Fields\"`]")).click();
+		Thread.sleep(3000);
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeTextField[`value == \"Placeholder text\"`][1]")).sendKeys("1 textfield");
+		Thread.sleep(3000);
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeTextField[`value == \"Placeholder text\"`][2]")).sendKeys("2 textfield");
+		Thread.sleep(3000);
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeTextField[`value == \"Placeholder text\"`][3]")).sendKeys("3 textfield");
+		Thread.sleep(3000);
+		driver.findElement(AppiumBy.className("XCUIElementTypeSecureTextField")).sendKeys("hello secure field");
+		Thread.sleep(3000);
+	}
+	
+}

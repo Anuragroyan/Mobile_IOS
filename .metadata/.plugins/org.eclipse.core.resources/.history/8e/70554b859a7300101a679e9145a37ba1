@@ -1,0 +1,34 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class StepperPress extends BaseTest{
+   
+	@Test
+	public void StepperPressed() throws MalformedURLException, URISyntaxException, InterruptedException {
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name == \"Steppers\"`]")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("name == \"DEFAULT\" AND label == \"DEFAULT\"")).click();
+		Thread.sleep(5000);
+		List<WebElement> decrementButtons = driver.findElements(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name CONTAINS 'Decrement'`]"));
+		decrementButtons.get(1).click(); // Clicks the second 'Decrement' button
+		Thread.sleep(5000);
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][1]")).click();
+		Thread.sleep(5000);
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Decrement\"`][2]")).click();
+		Thread.sleep(5000);
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][2]")).click();
+		Thread.sleep(5000);
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Decrement\"`][3]")).click();
+		Thread.sleep(5000);
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][3]")).click();
+		Thread.sleep(5000);
+	}
+	
+}

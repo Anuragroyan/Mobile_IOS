@@ -1,0 +1,55 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class StepperPress extends BaseTest{
+   
+	@Test
+	public void StepperPressed() throws MalformedURLException, URISyntaxException, InterruptedException {
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name == \"Steppers\"`]")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("name == \"DEFAULT\" AND label == \"DEFAULT\"")).click();
+		Thread.sleep(5000);
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Decrement\"`][1]")).click();
+//		Thread.sleep(5000);
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][1]")).click();
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][1]")).click();
+//		Thread.sleep(5000);
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Decrement\"`][2]")).click();
+//		Thread.sleep(5000);
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][2]")).click();
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][2]")).click();
+//		Thread.sleep(5000);
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Decrement\"`][3]")).click();
+//		Thread.sleep(5000);
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][3]")).click();
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`][3]")).click();
+		Thread.sleep(5000);
+		  List<WebElement> decrementButtons = driver.findElements(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Decrement\"`]"));
+	        List<WebElement> incrementButtons = driver.findElements(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`label == \"Increment\"`]"));
+
+	        // Get the value label next to the stepper
+	        WebElement valueLabel = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name BEGINSWITH \"Value\"`]"));
+
+	        System.out.println("Initial value: " + valueLabel.getText());
+
+	        // Click Increment
+	        incrementButtons.get(0).click();
+	        Thread.sleep(1000);
+	        System.out.println("After Increment: " + valueLabel.getText());
+
+	        // Click Decrement
+	        decrementButtons.get(0).click();
+	        Thread.sleep(1000);
+	        System.out.println("After Decrement: " + valueLabel.getText());
+
+	        driver.quit();
+	}
+	
+}

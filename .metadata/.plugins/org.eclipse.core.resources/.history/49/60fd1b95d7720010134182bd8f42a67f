@@ -1,0 +1,16 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+
+import org.testng.annotations.Test;
+
+
+
+public class IOSBasics extends BaseTest {
+   
+	@Test
+	public void IOSBasic() throws MalformedURLException, URISyntaxException {
+		
+	}
+}

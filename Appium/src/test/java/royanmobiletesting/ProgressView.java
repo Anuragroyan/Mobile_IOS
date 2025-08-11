@@ -1,0 +1,26 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class ProgressView extends BaseTest {
+   
+	@Test
+	public void ProgressViews() throws MalformedURLException, URISyntaxException, InterruptedException {
+		driver.findElement(AppiumBy.accessibilityId("Progress Views")).click();
+		driver.findElement(AppiumBy.xpath("//XCUIElementTypeOther[@name=\"DEFAULT\" and @label=\"DEFAULT\"]")).click();
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeProgressIndicator[`name == \"Progress\"`][1]")).click();
+		Thread.sleep(5000);
+		driver.findElement(AppiumBy.xpath("//XCUIElementTypeOther[@name=\"BAR\" and @label=\"BAR\"]")).click();
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeProgressIndicator[`name == \"Progress\"`][2]")).click();
+		Thread.sleep(5000);
+		driver.findElement(AppiumBy.xpath("//XCUIElementTypeOther[@name=\"TINTED\" and @label=\"TINTED\"]")).click();
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeProgressIndicator[`name == \"Progress\"`][3]")).click();
+		Thread.sleep(5000);
+	}
+	
+}

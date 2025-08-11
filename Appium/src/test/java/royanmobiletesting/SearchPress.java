@@ -1,0 +1,25 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class SearchPress extends BaseTest {
+   
+	@Test
+	public void SearchPressed() throws MalformedURLException, URISyntaxException, InterruptedException {
+		driver.findElement(AppiumBy.accessibilityId("Search")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("name == \"Search Bars\" AND label == \"Search Bars\"")).click();
+		driver.findElement(AppiumBy.accessibilityId("Default")).click();
+		driver.findElement(AppiumBy.accessibilityId("DefaultSearchBarViewController")).click();
+		Thread.sleep(5000);
+		driver.findElement(AppiumBy.iOSNsPredicateString("type == 'XCUIElementTypeTextField' AND name == 'CenterPageView'")).sendKeys("Hello");
+//		driver.findElement(AppiumBy.xpath("//XCUIElementTypeOther[@name=\"CenterPageView\"]/XCUIElementTypeOther[1]")).sendKeys("Hello");
+//		driver.findElement(AppiumBy.accessibilityId("Custom")).click();
+//		driver.findElement(AppiumBy.accessibilityId("CustomSearchBarViewController")).click();
+	}
+	
+}

@@ -1,0 +1,27 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class StackViewPress extends BaseTest {
+   
+	@Test
+	public void StackViewPressed() throws MalformedURLException, URISyntaxException, InterruptedException {
+		driver.findElement(AppiumBy.accessibilityId("Stack Views")).click();
+		String header1 = driver.findElement(AppiumBy.accessibilityId("Showing/hiding views")).getText();
+		Assert.assertEquals(header1, "Showing/hiding views");
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"stepper increment\"`][1]")).click();
+		String header2 = driver.findElement(AppiumBy.accessibilityId("Add/remove views")).getText();
+		Thread.sleep(5000);
+		Assert.assertEquals(header2, "Add/remove views");
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"stepper increment\"`][2]")).click();
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"stepper decrement\"`]")).click();
+		Thread.sleep(5000);
+	}
+	
+}

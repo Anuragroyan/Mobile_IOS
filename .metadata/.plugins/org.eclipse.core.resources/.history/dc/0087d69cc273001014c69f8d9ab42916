@@ -1,0 +1,35 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import io.appium.java_client.AppiumBy;
+
+
+public class SliderView extends BaseTest{
+	
+	@Test
+	public void SliderViews() throws MalformedURLException, URISyntaxException, InterruptedException {
+		driver.findElement(AppiumBy.accessibilityId("Switches")).click();
+		String tab1 = driver.findElement(AppiumBy.iOSClassChain("name == \"DEFAULT\" AND label == \"DEFAULT\"")).getText();
+		Assert.assertEquals(tab1, "DEFAULT");
+		// Wait for 2 seconds
+		WebElement switch1 = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeSwitch[0]"));
+		String currentValue = switch1.getAttribute("value");
+
+		if ("0".equals(currentValue)) {
+		    switch1.click();
+		    System.out.println("Switch was OFF, now toggled ON");
+		} else {
+		    System.out.println("Switch was already ON, no action taken");
+		}
+//		String tab2 = driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeOther[`name == \"TINTED\"`][2]")).getText();
+//		Assert.assertEquals(tab2, "TINTED");
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeSwitch[`value == \"0\"`]")).click();
+//		Thread.sleep(5000);
+//		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeSwitch[`value == \"1\"`][2]")).click();
+	}
+
+}

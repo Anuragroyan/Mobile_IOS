@@ -1,0 +1,35 @@
+package royanmobiletesting;
+
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+
+import io.appium.java_client.AppiumBy;
+
+public class StepperPress extends BaseTest{
+   
+	@Test
+	public void StepperPressed() throws MalformedURLException, URISyntaxException, InterruptedException {
+		driver.findElement(AppiumBy.iOSClassChain("**/XCUIElementTypeStaticText[`name == \"Steppers\"`]")).click();
+		driver.findElement(AppiumBy.iOSNsPredicateString("name == \"DEFAULT\" AND label == \"DEFAULT\"")).click();
+		Thread.sleep(5000);
+		List<WebElement> decrementButtons = driver.findElements(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Decrement\"`]"));
+		List<WebElement> incrementButtons = driver.findElements(AppiumBy.iOSClassChain("**/XCUIElementTypeButton[`name == \"Increment\"`]"));
+		decrementButtons.get(0).click(); // First
+		Thread.sleep(2000);
+		incrementButtons.get(0).click();
+
+		decrementButtons.get(1).click(); // Second
+		Thread.sleep(2000);
+		incrementButtons.get(1).click();
+
+		decrementButtons.get(2).click(); // Third
+		Thread.sleep(2000);
+		incrementButtons.get(2).click();
+
+	}
+	
+}
